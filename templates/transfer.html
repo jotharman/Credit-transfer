@@ -1,0 +1,33 @@
+{% extends "layout.html"  %}
+{% block title %}
+transferpage
+{% endblock %}
+{% block content %}
+<h1>SELECT THE USER TO TRANSFER THE CREDIT TO:</h1>
+
+	<h4>
+		<div class="container">
+			<table class="table table-condensed" width="100%" >
+				<header>
+					<td>Name</td>
+					<td>Email adress</td>
+					<td>current credit</td>
+				</header>
+			{% for i in data %}
+{% if idfrom|int!=i.id %}
+			<tr>
+			<td><a href="{{ url_for('credit_transfer',idto=i.id,name=i.name,current_creditto=i.current_credit,idfrom=idfrom,current_creditfrom=current_creditfrom) }}"	>{{  i.id  }} 
+			</td> 
+				<td><a href="{{ url_for('credit_transfer',idto=i.id,name=i.name,current_creditto=i.current_credit,idfrom=idfrom,current_creditfrom=current_creditfrom) }}" >{{  i.name }}</td> 
+				<td><a href="{{ url_for('credit_transfer',idto=i.id,name=i.name,current_creditto=i.current_credit,idfrom=idfrom,current_creditfrom=current_creditfrom) }}"> {{ i.current_credit }}</td>
+			
+			</tr>
+			{%  endif %}
+				{% endfor %}
+		</div>
+
+	</h4>
+
+
+{% endblock %}
+

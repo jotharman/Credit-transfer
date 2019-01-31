@@ -1,0 +1,29 @@
+{% extends "layout.html"  %}
+{% block title %}
+viewalluserspage
+{% endblock %}
+
+{% block content %}
+<header><h1>List of all Users</h1>
+
+	<h4>
+		<div class="container">
+			<table class="table table-condensed" width="100%" >
+				<header>
+					<td>Name</td>
+					<td>Email adress</td>
+					<td>current credit</td>
+				</header>
+			{% for i in data %}
+			<tr>
+			<td>	
+			<a href="{{ url_for('user',userid=i.id,name=i.name,email=i.email,current_credit=i.current_credit) }}">{{i.name}}</a></td> 
+				<td><a href="{{ url_for('user',userid=i.id,name=i.name,email=i.email,current_credit=i.current_credit) }}">{{i.email}}</td> 
+				<td><a href="{{ url_for('user',userid=i.id,name=i.name,email=i.email,current_credit=i.current_credit) }}">{{i.current_credit}}</td>
+			
+			</tr>
+				{% endfor %}
+		</div>
+
+	</h4>
+		{% endblock %}

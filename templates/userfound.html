@@ -1,0 +1,16 @@
+{% extends "layout.html"  %}
+{% block title %}
+viewthishihuserspage
+{% endblock %}
+{% block content %}
+<h1 align="centre">
+	USER DETAILS
+</h1>
+<h3> Userid = {{ idfrom }}</h3>
+<h3>Username={{ name }}</h3>
+<h3>Email address={{ email}}</h3>
+<h3>Current_credit={{ current_credit }}</h3>
+<h3>
+	<a href="{{ url_for('transfer',idfrom=idfrom,current_creditfrom=current_credit) }}">Click here to transfer credit</a>
+</h3>
+{% endblock %}
